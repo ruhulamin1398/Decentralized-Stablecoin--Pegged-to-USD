@@ -15,7 +15,7 @@ contract HelperConfig is Script {
     }
 
 uint8 public constant DECIMALS = 8;
-int256  public constant ETH_USD_PRICE = 200e8;
+int256  public constant ETH_USD_PRICE = 2000e8;
 int256  public constant BTC_USD_PRICE = 1000e8;
 
     NetworkConfig public activeNetworkConfig;
@@ -45,8 +45,8 @@ int256  public constant BTC_USD_PRICE = 1000e8;
         vm.startBroadcast();
         MockV3Aggregator ethUsdPriceFeed = new MockV3Aggregator(DECIMALS, ETH_USD_PRICE);
         MockV3Aggregator wbtcUsdPriceFeed = new MockV3Aggregator(DECIMALS, BTC_USD_PRICE);
-        ERC20Mock weth = new ERC20Mock("WETH", "WETH",msg.sender, 100e8);
-        ERC20Mock wbtc = new ERC20Mock("WBTC", "WBTC",msg.sender, 100e8);
+        ERC20Mock weth = new ERC20Mock("WETH", "WETH",msg.sender, 1000e8);
+        ERC20Mock wbtc = new ERC20Mock("WBTC", "WBTC",msg.sender, 1000e8);
         activeNetworkConfig = NetworkConfig({
             wethUsdPriceFeed: address(ethUsdPriceFeed),
             wbtcUsdPriceFeed: address(wbtcUsdPriceFeed),
